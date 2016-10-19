@@ -5,6 +5,6 @@ class Tag
   include DataMapper::Resource
 
   property :id, Serial
-  property :tag, String
+  property :name, String
 
 end
