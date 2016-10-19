@@ -7,3 +7,7 @@ gem 'rspec'
 gem 'capybara'
 gem 'rspec-sinatra'
 gem 'sinatra'
+
+group :test do
+  gem 'database_cleaner'
+end
