@@ -2,7 +2,6 @@ require 'spec_helper'
 require './bookmark_manager.rb'
 
 feature "Add a tag to a link" do
-
   before :each do
     Link.create(url: "www.bbc.co.uk", title: "BBC", tags: [Tag.first_or_create(name:'news')])
     Link.create(url: "www.bubbles.com", title: "water", tags: [Tag.first_or_create(name: 'bubbles'), Tag.first_or_create(name:'dogs')])
@@ -42,5 +41,4 @@ feature "Add a tag to a link" do
     visit('/tags/ocean')
     expect(page).to have_content('Magical')
   end
-
 end

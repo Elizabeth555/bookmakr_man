@@ -1,4 +1,4 @@
-require './data_mapper_setup'
+require 'data_mapper'
 
 class Tag
   include DataMapper::Resource
