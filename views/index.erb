@@ -5,7 +5,10 @@
   <%@links.each do |link| %>
     <li>
       Title: <%= link.title %>
-      URL: <%= link.url %>
+      URL: <a href="<%= link.url %>"><%= link.url %></a>
+      Tags: <% link.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
     </li>
     <% end %>
 </ul>
@@ -14,7 +17,9 @@
   <input type="submit" value="New link">
 </form>
 
-<form action="/tags" method="get">
-  <input type='text' name="filter">
+<h2>Dumb Search Feature</h2>
+
+<form action="/search" method="get">
+  <input type='text' name="name">
   <input type="submit" value="Search">
 </form>

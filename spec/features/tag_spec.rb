@@ -21,5 +21,4 @@ feature "Add a tag to a link" do
     expect(page).to have_content('water')
     expect(page).not_to have_content('BBC')
   end
-
 end

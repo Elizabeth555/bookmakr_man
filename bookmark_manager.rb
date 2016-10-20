@@ -7,6 +7,7 @@ ENV['RACK_ENV']||='development'
 class Bookmark_Manager < Sinatra::Base
   get '/' do
     @links =Link.all
+
     erb(:index)
   end
 
@@ -26,6 +27,10 @@ class Bookmark_Manager < Sinatra::Base
     tag = Tag.first(name: params[:name])
     @links = tag ? tag.links : []
     erb :'index'
+  end
+
+  get '/search' do
+    redirect "/tags/#{params[:name]}"
   end
 
 
