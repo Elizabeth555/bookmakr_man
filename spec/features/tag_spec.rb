@@ -12,4 +12,14 @@ feature "Add a tag to a link" do
     link = Link.first
     expect(link.tags.map(&:name)).to include('pink')
   end
+
+  scenario "filter tags" do
+    Link.create(url: "www.bbc.co.uk", title: "BBC", tags: [Tag.first_or_create(name:'news')])
+    Link.create(url: "www.bubbles.com", title: "water", tags: [Tag.first_or_create(name: 'bubbles')])
+
+    visit ('/tags/bubbles')
+    expect(page).to have_content('water')
+    expect(page).not_to have_content('BBC')
+  end
+
 end
