@@ -5,9 +5,14 @@ require_relative 'data_mapper_setup'
 ENV['RACK_ENV']||='development'
 
 class Bookmark_Manager < Sinatra::Base
+
+  get '/sign_up' do
+    erb(:sign_up)
+  end
+
+
   get '/' do
     @links =Link.all
-
     erb(:index)
   end
 
@@ -16,6 +21,8 @@ class Bookmark_Manager < Sinatra::Base
   end
 
   post '/' do
+    @name = params[:username]
+
     link = Link.create(url: params[:url], title: params[:title])
     tags = params[:tag].split(',')
     tags.each do |tag|

@@ -4,8 +4,6 @@ require 'data_mapper'
 require_relative './bookmark_manager.rb'
 
 task default: [:spec]
-p "hello"
-p ENV["RACK_ENV"]
 
 namespace :db do
 
